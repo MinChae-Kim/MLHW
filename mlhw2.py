@@ -21,7 +21,7 @@ for i in range(1000):
     uniform_sample = np.random.uniform(0, 1, 12)
     proc_samples.append(sum([sample-0.5 for sample in uniform_sample]))
 
-gaussian_samples = np.random.randn(100)
+gaussian_samples = np.random.randn(1000)
 proc_samples = np.array(proc_samples)
 
 def make_folds(data, k):
