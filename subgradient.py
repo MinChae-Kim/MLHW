@@ -16,11 +16,11 @@ class lossfn:
         self.Y = Y
         self.lam = lam
     def __call__(self, w):
-        return np.mean(np.maximum(0, 1 - self.Y * np.dot(self.X, w))) + self.lam * (np.linalg.norm(w))**2
+        return np.mean(np.maximum(0, 1 - self.Y * np.dot(self.X, w))) + self.lam *0.5* (np.linalg.norm(w))**2
     def subgrad(self, w):
         subgrad_values = np.array([np.zeros(x.shape) if y * np.dot(x, w) > 1 else -y * x for x, y in zip(self.X, self.Y)])
         mean_subgrad = np.mean(subgrad_values, axis=0)
-        return mean_subgrad + 2 * self.lam * w
+        return mean_subgrad +  self.lam * w
 
 class SVM:
     def __init__(self, X, Y, lossfn, w0, lr=0.1):
