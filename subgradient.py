@@ -23,7 +23,7 @@ class lossfn:
         return mean_subgrad +  self.lam * w
 
 class SVM:
-    def __init__(self, X, Y, lossfn, w0, lr=0.1):
+    def __init__(self, X, Y, lossfn, w0, lr=1e-2):
         self.lossfn = lossfn(X, Y, lam)
         self.w = w0
         self.lr = lr
